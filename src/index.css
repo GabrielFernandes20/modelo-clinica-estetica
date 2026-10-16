@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-paper text-ink font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-ink;
+    letter-spacing: -0.02em;
+  }
+
+  /* Browser surface theming — craft-floor requirement */
+  ::selection {
+    background-color: #7A2E3A;
+    color: #F7F3EC;
+  }
+
+  :focus-visible {
+    outline: 2px solid #7A2E3A;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Themed caret */
+  input, textarea {
+    caret-color: #7A2E3A;
+  }
+
+  /* Custom scrollbar — webkit */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F7F3EC;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #DDD1BE;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7A2E3A;
+  }
+
+  /* Underline offset for links */
+  a {
+    text-underline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Scroll reveal animation styles (natural luxury deceleration with subtle scale-up and bounded slide) */
+  .reveal-init {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+    transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal-init.is-revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Stagger delays */
+  .reveal-delay-1 {
+    transition-delay: 80ms;
+  }
+  .reveal-delay-2 {
+    transition-delay: 150ms;
+  }
+  .reveal-delay-3 {
+    transition-delay: 220ms;
+  }
+  .reveal-delay-4 {
+    transition-delay: 290ms;
+  }
+
+  /* Luxury Sheen / Shimmer effect for CTA buttons */
+  .btn-luxury-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-luxury-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.22),
+      transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .btn-luxury-shimmer:hover::after {
+    left: 140%;
+  }
+
+  /* Smooth card container feedback with velvety elevation and ambient shadow */
+  .card-interactive {
+    transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease;
+  }
+  .card-interactive:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@layer utilities {
+  .container-editorial {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-12;
+  }
+}
+
+/* Reduced motion compliance — Impeccable accessibility requirement */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .card-interactive:hover {
+    transform: none !important;
+  }
+
+  .btn-luxury-shimmer::after {
+    display: none !important;
+  }
+}
