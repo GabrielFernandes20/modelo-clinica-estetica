@@ -92,11 +92,11 @@ export function Services() {
         </div>
 
         {/* Grade de Procedimentos */}
-        <div className="reveal-init reveal-delay-2 mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 transition-all duration-300">
-          {filteredServices.map((service: Service) => (
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 transition-all duration-300">
+          {filteredServices.map((service: Service, idx: number) => (
             <article
               key={service.id}
-              className="card-interactive group flex flex-col justify-between overflow-hidden rounded-2xl bg-paperPure border border-line shadow-editorial hover:shadow-editorial-lg hover:border-wine/40"
+              className={`card-interactive reveal-init reveal-delay-${(idx % 2) + 1} group flex flex-col justify-between overflow-hidden rounded-2xl bg-paperPure border border-line shadow-editorial hover:shadow-editorial-lg hover:border-wine/40`}
             >
               <div>
                 {/* Imagem do Procedimento com zoom suave ao passar o mouse */}

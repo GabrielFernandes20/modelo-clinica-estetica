@@ -7,11 +7,11 @@ export function Hero() {
     <section id="inicio" className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-28">
       {/* Luzes ambiente sutis e orgânicas */}
       <div
-        className="pointer-events-none absolute -top-40 right-1/4 h-96 w-96 rounded-full bg-gold/15 blur-3xl animate-float-slow animate-pulse-subtle"
+        className="pointer-events-none absolute -top-40 right-1/4 h-96 w-96 rounded-full bg-gold/15 blur-3xl ambient-float-1"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute top-1/2 left-0 h-80 w-80 rounded-full bg-wine/10 blur-3xl animate-float-reverse"
+        className="pointer-events-none absolute top-1/2 left-0 h-80 w-80 rounded-full bg-wine/10 blur-3xl ambient-float-2"
         aria-hidden="true"
       />
 
@@ -19,23 +19,23 @@ export function Hero() {
         {/* Coluna de Conteúdo — sequência focal de entrada */}
         <div className="flex flex-col items-start text-left">
           {/* Badge de boas-vindas com efeito glow suave */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-goldLight/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-goldDark mb-6 animate-fade-in-up shadow-sm">
+          <div className="hero-animate-1 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-goldLight/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-goldDark mb-6 shadow-sm">
             <SparklesIcon className="h-3.5 w-3.5 text-goldDark animate-pulse" />
             <span>Clínica de Estética & Ateliê de Beleza</span>
           </div>
 
           {/* H1 com tipografia ampla e elegante */}
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.4rem] xl:text-[3.8rem] font-medium leading-[1.12] tracking-tight text-ink max-w-[19ch] animate-fade-in-up [animation-delay:80ms]">
+          <h1 className="hero-animate-2 font-display text-4xl sm:text-5xl lg:text-[3.4rem] xl:text-[3.8rem] font-medium leading-[1.12] tracking-tight text-ink max-w-[19ch]">
             A sua beleza em evidência, com o cuidado que você merece.
           </h1>
 
-          <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-inkSoft animate-fade-in-up [animation-delay:150ms]">
+          <p className="hero-animate-3 mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-inkSoft">
             Um espaço acolhedor e sofisticado dedicado ao realce da sua beleza natural.
             Procedimentos faciais avançados, visagismo do olhar, cuidados corporais e terapias relaxantes — com atendimento 100% individualizado e horário marcado.
           </p>
 
           {/* Indicadores de confiança em linha */}
-          <div className="mt-8 flex flex-wrap items-center gap-y-3 gap-x-7 text-xs sm:text-[13px] text-inkMuted animate-fade-in-up [animation-delay:220ms]">
+          <div className="hero-animate-4 mt-8 flex flex-wrap items-center gap-y-3 gap-x-7 text-xs sm:text-[13px] text-inkMuted">
             <div className="flex items-center gap-2 transition-all duration-200 hover:text-ink">
               <ClockIcon className="h-4 w-4 text-wine flex-shrink-0" />
               <span>Hora marcada sem espera</span>
@@ -51,7 +51,7 @@ export function Hero() {
           </div>
 
           {/* CTAs */}
-          <div className="mt-8 flex w-full flex-col sm:flex-row items-stretch sm:items-center gap-4 animate-fade-in-up [animation-delay:280ms]">
+          <div className="hero-animate-5 mt-8 flex w-full flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <a
               href={whatsappLink()}
               target="_blank"
@@ -70,12 +70,12 @@ export function Hero() {
             </a>
           </div>
 
-          <p className="mt-2.5 text-xs text-inkMuted pl-1 animate-fade-in-up [animation-delay:340ms]">
+          <p className="mt-2.5 text-xs text-inkMuted pl-1">
             Atendimento humanizado e confirmação rápida de horários.
           </p>
 
           {/* Prova social com design editorial */}
-          <div className="mt-8 pt-7 border-t border-line/80 w-full flex items-center gap-4 animate-fade-in-up [animation-delay:400ms]">
+          <div className="hero-animate-6 mt-8 pt-7 border-t border-line/80 w-full flex items-center gap-4">
             <div className="flex text-amber-500">
               {[...Array(5)].map((_, i) => (
                 <StarIcon key={i} className="h-4 w-4 fill-current transition-transform duration-200 hover:scale-125" />
@@ -88,7 +88,7 @@ export function Hero() {
         </div>
 
         {/* Coluna Visual */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none animate-scale-in [animation-delay:180ms]">
+        <div className="hero-visual-animate relative mx-auto w-full max-w-md lg:max-w-none">
           {/* Moldura decorativa sutil */}
           <div
             className="absolute -inset-3 sm:-inset-4 rounded-3xl border border-line bg-paperAlt/50 -rotate-1 transition-transform duration-500 hover:rotate-0"

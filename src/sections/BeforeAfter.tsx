@@ -174,8 +174,8 @@ export function BeforeAfter() {
                 className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] z-20 pointer-events-none"
                 style={{ left: `${sliderPosition}%` }}
               >
-                <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 h-10 w-10 rounded-full bg-paperPure border-2 border-wine shadow-lg flex items-center justify-center text-wine font-bold text-xs">
-                  ⟷
+                <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 h-11 w-11 rounded-full bg-paperPure border-2 border-wine shadow-lg flex items-center justify-center text-wine font-bold text-xs animate-pulse-handle transition-transform hover:scale-110">
+                  <span>⟷</span>
                 </div>
               </div>
             </div>

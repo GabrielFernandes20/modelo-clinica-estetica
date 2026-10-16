@@ -7,7 +7,7 @@ export function CommercialDemoBanner() {
 
   // Link direto para o WhatsApp do Gabriel (desenvolvedor)
   // O cliente pode clicar para contratar a implantação do modelo
-  const gabrielWhatsapp = "https://wa.me/5519999999999?text=" + encodeURIComponent(
+  const gabrielWhatsapp = "https://wa.me/5511942714536?text=" + encodeURIComponent(
     "Olá Gabriel! Vi a demonstração do site de estética/beleza e tenho interesse em implantar no meu negócio por R$ 4.000."
   );
 
