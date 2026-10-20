@@ -44,14 +44,18 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>() {
 }
 
 /**
- * useAutoScrollReveal — automatically discovers and observes all .reveal-init elements on the page
+ * useAutoScrollReveal — automatically discovers and observes all reveal elements on the page
+ * Supports: .reveal-init, .reveal-from-left, .reveal-from-right, .reveal-scale
  */
 export function useAutoScrollReveal() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    const REVEAL_SELECTOR = ".reveal-init, .reveal-from-left, .reveal-from-right, .reveal-scale";
+    const UNREVEALED_SELECTOR = ".reveal-init:not(.is-revealed), .reveal-from-left:not(.is-revealed), .reveal-from-right:not(.is-revealed), .reveal-scale:not(.is-revealed)";
+
     if (!("IntersectionObserver" in window)) {
-      document.querySelectorAll(".reveal-init").forEach((el) => {
+      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
         el.classList.add("is-revealed");
       });
       return;
@@ -73,7 +77,7 @@ export function useAutoScrollReveal() {
     );
 
     const observeElements = () => {
-      const elements = document.querySelectorAll(".reveal-init:not(.is-revealed)");
+      const elements = document.querySelectorAll(UNREVEALED_SELECTOR);
       elements.forEach((el) => observer.observe(el));
     };
 

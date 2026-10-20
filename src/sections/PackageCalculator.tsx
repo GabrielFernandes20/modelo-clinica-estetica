@@ -63,7 +63,7 @@ export function PackageCalculator() {
 
         <div className="reveal-init max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Opções de Seleção */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div className="reveal-from-left lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             {PACKAGE_OPTIONS.map((item) => {
               const isSelected = selectedIds.includes(item.id);
               return (
@@ -82,8 +82,8 @@ export function PackageCalculator() {
                       {item.category}
                     </span>
                     <span
-                      className={`h-5 w-5 rounded-full flex items-center justify-center transition-colors ${
-                        isSelected ? "bg-wine text-paper" : "border border-line bg-white"
+                      className={`h-5 w-5 rounded-full flex items-center justify-center transition-all duration-200 ${
+                        isSelected ? "bg-wine text-paper scale-110 animate-check-spring" : "border border-line bg-white"
                       }`}
                     >
                       {isSelected && <CheckIcon className="h-3 w-3" />}
@@ -105,13 +105,13 @@ export function PackageCalculator() {
           </div>
 
           {/* Resumo do Pacote / Conversão Direta */}
-          <div className="lg:col-span-5 bg-paperPure rounded-3xl p-6 sm:p-8 border border-line shadow-editorial-lg flex flex-col justify-between sticky top-28">
+          <div className="reveal-from-right lg:col-span-5 bg-paperPure rounded-3xl p-6 sm:p-8 border border-line shadow-editorial-lg flex flex-col justify-between sticky top-28">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-line">
                 <h3 className="font-display text-xl font-medium text-ink">
                   Seu Pacote Personalizado
                 </h3>
-                <span className="rounded-full bg-goldLight px-2.5 py-0.5 text-xs font-bold text-goldDark">
+                <span key={selectedServices.length} className="rounded-full bg-goldLight px-2.5 py-0.5 text-xs font-bold text-goldDark animate-badge-pop">
                   {selectedServices.length} {selectedServices.length === 1 ? "item" : "itens"}
                 </span>
               </div>
@@ -126,7 +126,7 @@ export function PackageCalculator() {
                   selectedServices.map((service) => (
                     <div
                       key={service.id}
-                      className="flex items-center justify-between text-sm py-1 border-b border-line/40 last:border-0"
+                      className="flex items-center justify-between text-sm py-1 border-b border-line/40 last:border-0 animate-toast-slide"
                     >
                       <span className="text-ink font-medium">{service.name}</span>
                       <span className="text-xs text-inkMuted flex-shrink-0">
@@ -139,7 +139,7 @@ export function PackageCalculator() {
 
               {/* Tempo Total Estimado */}
               {selectedServices.length > 0 && (
-                <div className="bg-paperAlt/60 rounded-xl p-3.5 flex items-center justify-between text-xs text-inkSoft mb-6">
+                <div key={totalTime} className="bg-paperAlt/60 rounded-xl p-3.5 flex items-center justify-between text-xs text-inkSoft mb-6 animate-price-pop">
                   <span>Tempo estimado total:</span>
                   <span className="font-bold text-ink">
                     aprox. {Math.floor(totalTime / 60) > 0 ? `${Math.floor(totalTime / 60)}h ` : ""}

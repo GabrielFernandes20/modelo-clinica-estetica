@@ -1,10 +1,22 @@
 import { company } from "../data/company";
+import { ClockIcon, ShieldCheckIcon, SparklesIcon, CheckIcon } from "../components/icons";
 
 export function Differentials() {
+  const iconMap: Record<number, React.ReactNode> = {
+    0: <ClockIcon className="w-6 h-6 text-wine" />,
+    1: <ShieldCheckIcon className="w-6 h-6 text-wine" />,
+    2: <SparklesIcon className="w-6 h-6 text-wine" />,
+    3: <CheckIcon className="w-6 h-6 text-wine" />,
+  };
+
   return (
     <section id="diferenciais" className="py-20 lg:py-28 bg-paperAlt/30">
       <div className="container-editorial">
         <div className="reveal-init max-w-2xl mb-14">
+          <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-wine mb-3">
+            <SparklesIcon className="h-4 w-4" />
+            <span>Nossos Compromissos</span>
+          </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.65rem] font-medium leading-[1.15] text-ink">
             A atenção que transforma o atendimento em bem-estar
           </h2>
@@ -22,6 +34,10 @@ export function Differentials() {
               } group flex flex-col justify-between rounded-2xl bg-paperPure border border-line p-7 sm:p-8 shadow-editorial hover:shadow-editorial-lg hover:border-wine/40`}
             >
               <div>
+                <div className="w-12 h-12 rounded-xl bg-wineLight/70 text-wine flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-sm mb-5">
+                  {iconMap[idx] || <SparklesIcon className="w-6 h-6 text-wine" />}
+                </div>
+
                 <h3 className="font-display text-xl font-medium text-ink leading-snug group-hover:text-wine transition-colors">
                   {item.title}
                 </h3>

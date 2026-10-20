@@ -1,14 +1,24 @@
+import { useState } from "react";
 import { company } from "../data/company";
 import { whatsappLink } from "../data/whatsapp";
-import { MapPinIcon, ClockIcon, WhatsAppIcon, SparklesIcon } from "../components/icons";
+import { MapPinIcon, ClockIcon, WhatsAppIcon, SparklesIcon, CheckIcon } from "../components/icons";
 
 export function Location() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyAddress = () => {
+    const fullAddress = `${company.address.street}, ${company.address.neighborhood}, ${company.address.city} - ${company.address.state}`;
+    navigator.clipboard?.writeText(fullAddress);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2400);
+  };
+
   return (
     <section id="contato" className="py-20 lg:py-28">
       <div className="container-editorial">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Dados */}
-          <div className="reveal-init">
+          <div className="reveal-from-left">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.65rem] font-medium leading-[1.15] text-ink">
               Fácil acesso no Centro de {company.city}
             </h2>
@@ -18,13 +28,30 @@ export function Location() {
             </p>
 
             <div className="mt-8 space-y-4">
-              {/* Endereço */}
-              <div className="card-interactive flex gap-4 items-start rounded-2xl bg-paperPure p-5 border border-line shadow-sm hover:shadow-editorial hover:border-wine/30">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-wineLight text-wine">
+              {/* Endereço com botão interativo de copiar */}
+              <div className="reveal-init card-interactive flex gap-4 items-start rounded-2xl bg-paperPure p-5 border border-line shadow-sm hover:shadow-editorial hover:border-wine/30 relative group">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-wineLight text-wine transition-transform duration-300 group-hover:scale-110">
                   <MapPinIcon className="h-5 w-5" />
                 </div>
-                <div>
-                  <h3 className="text-base font-semibold text-ink">Endereço</h3>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-base font-semibold text-ink">Endereço</h3>
+                    <button
+                      type="button"
+                      onClick={handleCopyAddress}
+                      className="text-xs px-2.5 py-1 rounded-full border border-line bg-paperAlt text-inkSoft hover:text-wine hover:border-wine transition-all active:scale-95 flex items-center gap-1"
+                      aria-label="Copiar endereço completo"
+                    >
+                      {copied ? (
+                        <span className="flex items-center gap-1 text-wine font-semibold animate-toast-slide">
+                          <CheckIcon className="h-3 w-3" />
+                          <span>Copiado!</span>
+                        </span>
+                      ) : (
+                        <span>Copiar</span>
+                      )}
+                    </button>
+                  </div>
                   <p className="text-sm text-inkSoft mt-1">
                     {company.address.street} — {company.address.neighborhood}
                   </p>
@@ -40,7 +67,7 @@ export function Location() {
               </div>
 
               {/* Horários */}
-              <div className="card-interactive flex gap-4 items-start rounded-2xl bg-paperPure p-5 border border-line shadow-sm hover:shadow-editorial hover:border-wine/30">
+              <div className="reveal-init reveal-delay-1 card-interactive flex gap-4 items-start rounded-2xl bg-paperPure p-5 border border-line shadow-sm hover:shadow-editorial hover:border-wine/30">
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-wineLight text-wine">
                   <ClockIcon className="h-5 w-5" />
                 </div>
@@ -87,7 +114,7 @@ export function Location() {
           </div>
 
           {/* Mapa */}
-          <div className="reveal-init reveal-delay-2 card-interactive overflow-hidden rounded-2xl border border-line bg-paperAlt shadow-editorial-lg aspect-[4/3] sm:aspect-[16/11] lg:aspect-auto lg:h-[460px]">
+          <div className="reveal-from-right card-interactive overflow-hidden rounded-2xl border border-line bg-paperAlt shadow-editorial-lg aspect-[4/3] sm:aspect-[16/11] lg:aspect-auto lg:h-[460px]">
             <iframe
               title={`Localização do ${company.name} em ${company.address.city}/${company.address.state}`}
               src={`https://www.google.com/maps?q=${encodeURIComponent(

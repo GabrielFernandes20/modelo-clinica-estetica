@@ -7,17 +7,17 @@ export function FinalCTA() {
     <section className="relative overflow-hidden bg-wine text-paper py-20 lg:py-28">
       {/* Luz ambiente suave com animação orgânica */}
       <div
-        className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-gold/20 blur-3xl animate-float-slow animate-pulse-subtle"
+        className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-gold/20 blur-3xl ambient-float-1"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-wineDark/80 blur-3xl animate-float-reverse"
+        className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-wineDark/80 blur-3xl ambient-float-2"
         aria-hidden="true"
       />
 
       <div className="container-editorial relative">
-        <div className="reveal-init max-w-3xl mx-auto text-center flex flex-col items-center">
-          <div className="flex items-center gap-2 mb-6 text-gold/90 animate-bounce [animation-duration:3s]">
+        <div className="reveal-scale max-w-3xl mx-auto text-center flex flex-col items-center">
+          <div className="flex items-center gap-2 mb-6 text-gold/90 animate-bounce-subtle">
             <SparklesIcon className="h-6 w-6" />
           </div>
 
@@ -34,7 +34,7 @@ export function FinalCTA() {
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-luxury-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-paper px-9 py-4 text-base font-semibold text-wine shadow-xl transition-all duration-300 hover:bg-paperAlt hover:shadow-2xl hover:-translate-y-0.5 active:scale-[0.98]"
+              className="btn-luxury-shimmer reveal-init reveal-delay-1 w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-paper px-9 py-4 text-base font-semibold text-wine shadow-xl transition-all duration-300 hover:bg-paperAlt hover:shadow-2xl hover:-translate-y-0.5 active:scale-[0.98]"
             >
               <WhatsAppIcon className="h-5 w-5" />
               <span>Agendar pelo WhatsApp</span>
@@ -42,7 +42,7 @@ export function FinalCTA() {
 
             <a
               href="#contato"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-paper/30 bg-transparent px-8 py-4 text-sm font-medium text-paper transition-all duration-300 hover:bg-paper/10 hover:border-paper/60 hover:-translate-y-0.5 active:scale-[0.98]"
+              className="reveal-init reveal-delay-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-paper/30 bg-transparent px-8 py-4 text-sm font-medium text-paper transition-all duration-300 hover:bg-paper/10 hover:border-paper/60 hover:-translate-y-0.5 active:scale-[0.98]"
             >
               <MapPinIcon className="h-4 w-4" />
               <span>Como Chegar</span>

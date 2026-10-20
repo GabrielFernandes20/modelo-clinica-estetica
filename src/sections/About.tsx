@@ -8,7 +8,7 @@ export function About() {
       <div className="container-editorial">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
           {/* Imagem principal do ambiente */}
-          <div className="reveal-init relative order-2 lg:order-1">
+          <div className="reveal-from-left relative order-2 lg:order-1">
             <div
               className="absolute -inset-4 rounded-3xl bg-gold/10 -rotate-2 -z-10 transition-transform duration-500 hover:rotate-0"
               aria-hidden="true"
@@ -36,7 +36,7 @@ export function About() {
           </div>
 
           {/* Texto e pilares */}
-          <div className="reveal-init reveal-delay-1 order-1 lg:order-2 flex flex-col items-start">
+          <div className="reveal-from-right order-1 lg:order-2 flex flex-col items-start">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.65rem] font-medium leading-[1.15] text-ink">
               {company.about.heading}
             </h2>
@@ -49,7 +49,7 @@ export function About() {
 
             {/* Pilares */}
             <div className="mt-8 space-y-5 w-full pt-6 border-t border-line">
-              <div className="flex gap-4 items-start group">
+              <div className="reveal-init reveal-delay-2 flex gap-4 items-start group">
                 <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-wineLight text-wine mt-0.5 transition-transform duration-300 group-hover:scale-110">
                   <ShieldCheckIcon className="h-4 w-4" />
                 </div>
@@ -61,7 +61,7 @@ export function About() {
                 </div>
               </div>
 
-              <div className="flex gap-4 items-start group">
+              <div className="reveal-init reveal-delay-3 flex gap-4 items-start group">
                 <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-wineLight text-wine mt-0.5 transition-transform duration-300 group-hover:scale-110">
                   <ClockIcon className="h-4 w-4" />
                 </div>

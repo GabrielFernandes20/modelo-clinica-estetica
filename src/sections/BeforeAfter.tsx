@@ -133,14 +133,16 @@ export function BeforeAfter() {
         </div>
 
         {/* Card do Slider Interativo */}
-        <div className="reveal-init max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-paperPure rounded-3xl p-6 sm:p-8 lg:p-10 border border-line shadow-editorial-lg">
+        <div className="reveal-scale max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-paperPure rounded-3xl p-6 sm:p-8 lg:p-10 border border-line shadow-editorial-lg">
           {/* Lado Esquerdo: Área do Comparador */}
-          <div className="lg:col-span-7">
+          <div className="reveal-from-left lg:col-span-7">
             <div
               ref={containerRef}
               onMouseDown={() => setIsDragging(true)}
               onTouchStart={() => setIsDragging(true)}
-              className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl select-none cursor-ew-resize bg-ink/5 border border-line shadow-inner touch-none"
+              className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl select-none bg-ink/5 border border-line shadow-inner touch-none transition-all ${
+                isDragging ? "cursor-grabbing" : "cursor-ew-resize"
+              }`}
             >
               {/* Imagem do "Depois" (fundo completo) */}
               <img
@@ -185,7 +187,7 @@ export function BeforeAfter() {
           </div>
 
           {/* Lado Direito: Detalhes e CTA Direto */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
+          <div className="reveal-from-right lg:col-span-5 flex flex-col justify-between h-full space-y-6">
             <div>
               <div className="inline-block rounded-full bg-wineLight px-3 py-1 text-xs font-semibold text-wine mb-3">
                 {activeItem.tag}

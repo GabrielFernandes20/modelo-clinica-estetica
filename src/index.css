@@ -115,6 +115,130 @@
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-48px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(48px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes scaleReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes glowPulseText {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(122, 46, 58, 0.0);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(122, 46, 58, 0.35);
+  }
+}
+
+@keyframes badgePop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes pricePopWine {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.12);
+    color: #7A2E3A;
+    text-shadow: 0 0 12px rgba(122, 46, 58, 0.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes toastSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes checkSpring {
+  0% {
+    transform: scale(0.6);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @layer components {
   /* Scroll reveal animation styles (Impeccable exponential ease-out) */
   .reveal-init {
@@ -129,6 +253,42 @@
     transform: translateY(0) scale(1);
   }
 
+  /* Slide from left */
+  .reveal-from-left {
+    opacity: 0;
+    transform: translateX(-48px) scale(0.97);
+    transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-from-left.is-revealed {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  /* Slide from right */
+  .reveal-from-right {
+    opacity: 0;
+    transform: translateX(48px) scale(0.97);
+    transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-from-right.is-revealed {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  /* Scale reveal */
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.88);
+    transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-scale.is-revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   /* Stagger delays */
   .reveal-delay-1 {
     transition-delay: 100ms;
@@ -141,6 +301,12 @@
   }
   .reveal-delay-4 {
     transition-delay: 400ms;
+  }
+  .reveal-delay-5 {
+    transition-delay: 500ms;
+  }
+  .reveal-delay-6 {
+    transition-delay: 600ms;
   }
 
   /* Hero focal entrance classes — delays calibrados para serem claramente apreciados */
@@ -223,6 +389,46 @@
   .card-interactive:hover {
     transform: translateY(-6px);
   }
+
+  /* Fade in up utility */
+  .animate-fade-in-up {
+    animation: fadeInUp 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Soft bounce utility */
+  .animate-bounce-subtle {
+    animation: bounceSoft 2.4s ease-in-out infinite;
+  }
+
+  /* Section badge pop-in */
+  .animate-badge-pop {
+    animation: badgePop 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Wine text glow pulse */
+  .animate-glow-text {
+    animation: glowPulseText 3s ease-in-out infinite;
+  }
+
+  /* Decorative line grow (for underlines) */
+  .animate-line-grow {
+    animation: lineGrow 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Live price pop animation */
+  .animate-price-pop {
+    animation: pricePopWine 350ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Toast slide feedback */
+  .animate-toast-slide {
+    animation: toastSlide 250ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Checkbox spring */
+  .animate-check-spring {
+    animation: checkSpring 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
 
 @layer utilities {
@@ -233,7 +439,10 @@
 
 /* Reduced motion compliance — Impeccable accessible motion (fewer and gentler animations, not total disappearance) */
 @media (prefers-reduced-motion: reduce) {
-  .reveal-init {
+  .reveal-init,
+  .reveal-from-left,
+  .reveal-from-right,
+  .reveal-scale {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
@@ -263,5 +472,18 @@
   .btn-luxury-shimmer::after {
     animation: none !important;
     display: none !important;
+  }
+
+  .animate-fade-in-up,
+  .animate-bounce-subtle,
+  .animate-badge-pop,
+  .animate-glow-text,
+  .animate-line-grow,
+  .animate-price-pop,
+  .animate-toast-slide,
+  .animate-check-spring {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

@@ -131,7 +131,7 @@ export function Hero() {
       </div>
 
       {/* Indicador animado de rolagem */}
-      <div className="mt-12 lg:mt-16 flex flex-col items-center justify-center animate-fade-in-up [animation-delay:480ms]">
+      <div className="mt-12 lg:mt-16 flex flex-col items-center justify-center animate-fade-in-up" style={{animationDelay: '1000ms'}}>
         <a
           href="#servicos"
           aria-label="Rolar para conhecer procedimentos"
